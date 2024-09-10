@@ -1,0 +1,61 @@
+import { Component } from '@angular/core';
+import { MedicationService } from '../medication.service';
+import { FormsModule } from '@angular/forms';
+import { MedicationAdministration } from '../models/medication.model';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-medication-form',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './medication-form.component.html',
+  styleUrl: './medication-form.component.css'
+})
+export class MedicationFormComponent {
+  medicationAdministration: MedicationAdministration = {
+    medication: { reference: '' },
+    subject: { reference: 'patient/66dfed4999cb8a001240f32f'},
+    status: '',
+    occurenceDateTime: '',
+    isSubPotent: false,
+    subPotentReason: [],
+    performer: [
+      {
+        function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function',
+                               code: 'doctor',
+                               display: 'Doctor' }]},
+        actor: { reference: 'practitioner/66dffe7399cb8a001240f331' }
+      }
+    ]
+  };
+
+  constructor(private medicationService: MedicationService) { }
+
+  onSubmit(): void {
+    this.medicationAdministration.occurenceDateTime = this.formatToUTC(this.medicationAdministration.occurenceDateTime);
+    this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {
+      console.log('Données envoyées avec succès:', response);
+    }, error => {
+      console.error('Erreur lors de l\'envoi des données:', error);
+    });
+  }
+
+  private formatToUTC(dateTime: string): string {
+    const date = new Date(dateTime);
+    return date.toISOString();
+  }
+
+  onSubPotentChange(isSubPotent: boolean): void {
+    this.medicationAdministration.isSubPotent = isSubPotent;
+
+    if (isSubPotent) {
+      this.medicationAdministration.status = 'completed';
+    } else {
+      this.medicationAdministration.status = 'stopped'; 
+    }
+
+    if (!isSubPotent) {
+      this.medicationAdministration.subPotentReason = [];  // Réinitialise la raison si la dose est complète
+    }
+  }
+}
