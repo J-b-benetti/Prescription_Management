@@ -21,13 +21,17 @@ export class MedicationFormComponent {
     subPotentReason: [],
     performer: [
       {
-        function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function',
-                               code: 'doctor',
-                               display: 'Doctor' }]},
-        actor: { reference: 'practitioner/66dffe7399cb8a001240f331' }
+        function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function', //http://terminology.hl7.org/CodeSystem/performer-function
+                               code: 'doctor', //doctor
+                               display: 'Doctor' //Doctor
+                            }]
+                  },
+        actor: { reference: '' } //practitioner/66dffe7399cb8a001240f331
       }
     ]
   };
+
+  newSubPotentReason: string = '';
 
   constructor(private medicationService: MedicationService) { }
 
@@ -56,6 +60,13 @@ export class MedicationFormComponent {
 
     if (!isSubPotent) {
       this.medicationAdministration.subPotentReason = [];  // Réinitialise la raison si la dose est complète
+    }
+  }
+
+  addSubPotentReason(): void {
+    if (this.newSubPotentReason) {
+      this.medicationAdministration.subPotentReason.push(this.newSubPotentReason);
+      this.newSubPotentReason = ''; // Clear the input field
     }
   }
 }
