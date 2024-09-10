@@ -1,6 +1,22 @@
 <ul>
+  <table>
 
+    <tr> <td>
+        Médecin
+      </td>
+      <td>
+        Médicaments
+      </td>
+      <td>
+        Date
+      </td>
+       </tr>
   @for (med of medRequest ; track med.id) {
-  <li>{{ med.id }} ; {{ med.status }} ; {{med.dispenseRequest?.validityPeriod?.start}} ; {{med.dispenseRequest?.validityPeriod?.end}}</li>
-  }
+    <tr>
+    <td>{{ med.requester?.display }}</td>
+  <td>{{ med.medication.concept?.coding?.display }}</td>
+  <td>{{ med.authoredOn }}</td>
+  </tr>
+    }
+  </table>
 </ul>
