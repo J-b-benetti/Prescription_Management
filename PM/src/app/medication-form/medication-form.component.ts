@@ -32,14 +32,20 @@ export class MedicationFormComponent {
   };
 
   newSubPotentReason: string = '';
+  successMessage: string = '';
 
   constructor(private medicationService: MedicationService) { }
 
   onSubmit(): void {
     this.medicationAdministration.occurenceDateTime = this.formatToUTC(this.medicationAdministration.occurenceDateTime);
     this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {
+      this.successMessage = 'Le formulaire a été enregistré avec succès!';
+      this.resetForm();
+
       console.log('Données envoyées avec succès:', response);
     }, error => {
+      this.successMessage = 'Une erreur est survenue lors de l\'envoi des données.';
+
       console.error('Erreur lors de l\'envoi des données:', error);
     });
   }
@@ -68,5 +74,23 @@ export class MedicationFormComponent {
       this.medicationAdministration.subPotentReason.push(this.newSubPotentReason);
       this.newSubPotentReason = ''; // Clear the input field
     }
+  }
+
+  resetForm(): void {
+    this.medicationAdministration = {
+      medication: { reference: { reference: '' } },
+      subject: { reference: 'patient/66dfed4999cb8a001240f32f' },
+      status: '',
+      occurenceDateTime: '',
+      isSubPotent: false,
+      subPotentReason: [],
+      performer: [
+        {
+          function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function', code: 'doctor', display: 'Doctor' }] },
+          actor: { reference: { reference: '' } }
+        }
+      ]
+    };
+    this.newSubPotentReason = '';
   }
 }
