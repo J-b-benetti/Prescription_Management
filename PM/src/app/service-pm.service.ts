@@ -7,10 +7,9 @@ export interface MedicationRequest {
   id: string;
   identifier: [{ system: string, value: string }];
   status: string;
-  medication?: {concept? : { coding?:[ {system? : string,code? :string,display?:string}]}};
+  medication?: any;
   authoredOn: string;
-requester : {
-  reference : string, display: string };
+requester : { reference : string, display: string };
 
 
 dispenseRequest: { validityPeriod : {
