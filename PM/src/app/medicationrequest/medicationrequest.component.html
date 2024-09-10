@@ -14,7 +14,7 @@
   @for (med of medRequest ; track med.id) {
     <tr>
     <td>{{med.requester?.display?}}</td>
-  <td>test</td>
+  <td> {{med.medication?.concept?.coding?.display}}</td>
   <td>{{ med.authoredOn }}</td>
   </tr>
     }
