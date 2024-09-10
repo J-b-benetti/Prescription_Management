@@ -1,6 +1,8 @@
 export interface MedicationAdministration  {
     medication: {
-        reference: string;
+        reference: {
+            reference : string;
+        };
     };
     subject: {
         reference: string;
@@ -12,7 +14,7 @@ export interface MedicationAdministration  {
     subPotentReason: string[];
     performer: {
         function?: CodeableConcept;
-        actor: { reference: string };
+        actor: { reference: { reference: ''} };
       }[];
 }
 

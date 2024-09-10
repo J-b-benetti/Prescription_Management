@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MedicationFormComponent {
   medicationAdministration: MedicationAdministration = {
-    medication: { reference: '' },
+    medication: { reference: { reference: '' } },
     subject: { reference: 'patient/66dfed4999cb8a001240f32f'},
     status: '',
     occurenceDateTime: '',
@@ -26,7 +26,7 @@ export class MedicationFormComponent {
                                display: 'Doctor' //Doctor
                             }]
                   },
-        actor: { reference: '' } //practitioner/66dffe7399cb8a001240f331
+        actor: { reference: { reference: '' } } //practitioner/66dffe7399cb8a001240f331
       }
     ]
   };
