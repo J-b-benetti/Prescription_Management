@@ -27,8 +27,10 @@
         <input id="subPotentReason" [(ngModel)]="newSubPotentReason" name="subPotentReason">
     </div>
 
-    <label for="occurenceDateTime">A quelle date avez vous pris votre médicament ?</label>
-    <input id="occurenceDateTime" type="datetime-local" [(ngModel)]="medicationAdministration.occurenceDateTime" name="occurenceDateTime" required>
+    <div *ngIf="medicationAdministration.isSubPotent">
+        <label for="occurenceDateTime">A quelle date avez vous pris votre médicament ?</label>
+        <input id="occurenceDateTime" type="datetime-local" [(ngModel)]="medicationAdministration.occurenceDateTime" name="occurenceDateTime" required>
+    </div>
     <br><br>
 
     <button type="submit">Envoyer</button>
