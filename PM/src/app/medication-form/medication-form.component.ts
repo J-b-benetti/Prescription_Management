@@ -38,6 +38,7 @@ export class MedicationFormComponent {
 
   onSubmit(): void {
     this.medicationAdministration.occurenceDateTime = this.formatToUTC(this.medicationAdministration.occurenceDateTime);
+    
     this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {
       this.successMessage = 'Le formulaire a été enregistré avec succès!';
       this.resetForm();
@@ -92,5 +93,6 @@ export class MedicationFormComponent {
       ]
     };
     this.newSubPotentReason = '';
+    this.successMessage = '';
   }
 }
