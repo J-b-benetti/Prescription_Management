@@ -1,13 +1,11 @@
 import {sign} from "crypto";
-export interface ValidityPeriod {
-  start: Date;
-  end: Date;
-}
+
 export interface MedicationRequest {
  id : string;
+ identifier : [{system : string, value : string}];
  status : string;
  medication : any;
- validityPeriod: ValidityPeriod;
+ dispenseRequest: {validityPeriod : {start : string, end : string}};
 }
 
 import { Injectable,inject, signal } from '@angular/core';

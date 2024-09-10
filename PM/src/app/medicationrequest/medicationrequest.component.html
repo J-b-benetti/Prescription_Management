@@ -1,6 +1,6 @@
 <ul>
 
   @for (med of medRequest ; track med.id) {
-  <li>{{ med.id }} ; {{ med.status }} </li>
+  <li>{{ med.id }} ; {{ med.status }} ; {{med.dispenseRequest?.validityPeriod?.start}} ; {{med.dispenseRequest?.validityPeriod?.end}}</li>
   }
 </ul>
