@@ -1,7 +1,10 @@
 import {sign} from "crypto";
 
 export interface MedicationRequest {
- id : string
+ id : string;
+ status : string;
+ medication : any;
+
 }
 
 import { Injectable,inject, signal } from '@angular/core';
