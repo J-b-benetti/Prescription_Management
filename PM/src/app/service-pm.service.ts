@@ -38,7 +38,10 @@ export class ServicePMService {
   }
 
   getMedicationRequests(){
-
+    console.log(this.http.get<MedicationRequest[]>('https://fhir.alliance4u.io/api/medication-request').pipe(tap(users => this.users.set(users))).subscribe({
+      next: (data) => console.log('Données reçues:', data),
+      error: (err) => console.error('Erreur lors de la récupération:', err)
+    }));
     return this.http.get<MedicationRequest[]>('https://fhir.alliance4u.io/api/medication-request').pipe(tap(users => this.users.set(users)));
   }
 getPaymentClaims(){

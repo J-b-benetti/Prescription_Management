@@ -12,13 +12,10 @@
   @for (med of claims ; track med.id) {
   <tr>
  <td>{{med.id}}</td>
-
-  <td>ted</td>
-  <td> test</td>
-<td><button type="button">Voir ordonnance</button></td>
+  <td> ted</td>
+  <td> {{med.created}}</td>
+<td> <app-payment> </app-payment></td>
   </tr>
-
-
   }
   </tbody>
 </table>
