@@ -3,4 +3,8 @@
   background-image: url('../../public/Icones/fondbleu.jpg');
 
 }
-
+.header
+{
+  text-align : center;
+  background-color: #87cefa;
+}

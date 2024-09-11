@@ -14,11 +14,11 @@ import { CommonModule } from '@angular/common';
 export class MedicationFormComponent {
   medicationAdministration: MedicationAdministration = {
     medication: { reference: { reference: 'medication/66e0385b99cb8a001240f335' } },
-    subject: { reference: 'patient/66dfed4999cb8a001240f32f'},
+    subject: { reference: 'patient/66dfed4999cb8a001240f32f' },
     status: '',
     occurenceDateTime: '',
     isSubPotent: false,
-    subPotentReason: [],
+    subPotentReason: [ { text: '' } ],
     performer: [
       {
         function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function', //http://terminology.hl7.org/CodeSystem/performer-function
@@ -76,16 +76,16 @@ export class MedicationFormComponent {
     }
 
     if (!isSubPotent) {
-      this.medicationAdministration.subPotentReason = [];  // Réinitialise la raison si la dose est complète
+      this.medicationAdministration.subPotentReason[0].text = "";  // Réinitialise la raison si la dose est complète
     }
   }
 
-  addSubPotentReason(): void {
+  /*addSubPotentReason(): void {
     if (this.newSubPotentReason) {
-      this.medicationAdministration.subPotentReason.push(this.newSubPotentReason);
-      this.newSubPotentReason = ''; // Clear the input field
+      this.medicationAdministration.subPotentReason.push({ text: this.newSubPotentReason });
+      this.newSubPotentReason = ''; // Réinitialise le champ d'entrée
     }
-  }
+  }*/
 
   resetForm(): void {
     this.medicationAdministration = {
@@ -94,7 +94,8 @@ export class MedicationFormComponent {
       status: '',
       occurenceDateTime: '',
       isSubPotent: false,
-      subPotentReason: [],
+      subPotentReason: [ {text: '' }
+      ],
       performer: [
         {
           function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function', code: 'doctor', display: 'Doctor' }] },

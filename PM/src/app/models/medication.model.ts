@@ -10,7 +10,7 @@ export interface MedicationAdministration  {
   status: string;
   occurenceDateTime: string;
   isSubPotent?: boolean;
-  subPotentReason: string[];
+  subPotentReason: { text: string }[];
   performer: {
     function?: CodeableConcept;
     actor: { reference: { reference: string } };
