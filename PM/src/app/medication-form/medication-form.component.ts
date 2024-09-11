@@ -35,6 +35,7 @@ export class MedicationFormComponent {
 
   newSubPotentReason: string = '';
   successMessage: string = '';
+  isSent:boolean=false;
 
   constructor(private medicationService: MedicationService) { }
 
@@ -45,6 +46,7 @@ export class MedicationFormComponent {
     this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {
       this.successMessage = 'Le formulaire a été enregistré avec succès!';
       this.resetForm();
+      this.isSent=true;
 
       console.log('Données envoyées avec succès:', response);
     }, error => {
