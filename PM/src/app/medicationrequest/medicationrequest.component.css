@@ -29,9 +29,13 @@ th {
   margin-top: 15px;
 }
 table {
-  width: 100%; /* Largeur du tableau */
-  border-collapse: collapse; /* Fusionne les bordures du tableau */
-  background-color: lightblue; /* Fond léger bleu */
+  width: 100%;
+  border-collapse: separate; /* Change from collapse to separate */
+  border-spacing: 0; /* Make sure there's no spacing between cells */
+  background-color: lightblue;
+  border-radius: 15px; /* Apply border radius to the table */
+  overflow: hidden; /* Ensure content inside the table respects the border radius */
+  border: 2px solid #000; /* Add the black border around the table */
 }
 
  td {
