@@ -13,6 +13,8 @@ import {MedicationFormComponent} from "../medication-form/medication-form.compon
   styleUrl: './medicationrequest.component.css'
 })
 export class MedicationrequestComponent implements OnInit {
+
+
 private ServicePM = inject(ServicePMService);
 clickOrdonnance : boolean = false;
   selectedMedicationRequest: MedicationRequest | null = null;
