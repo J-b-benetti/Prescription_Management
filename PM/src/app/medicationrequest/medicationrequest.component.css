@@ -10,3 +10,15 @@ th, td {
 th {
   background-color: #f2f2f2;
 }
+
+.dessus{ /*page superposée ldkeiedkkd*/
+  position: fixed;
+  z-index: 2; /* au dessus du reste */
+  width: 800px; /* largeur */
+  min-height: 550px; /* hauteur */
+  top:10%; /* a 10% du haut */
+  left:20%; /* a 20% de la gauche */
+  overflow: auto;
+  background-color: #87cefa;
+
+}

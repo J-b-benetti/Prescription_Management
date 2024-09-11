@@ -1,30 +1,42 @@
-
-  <table>
-
-    <tr> <td>
-        Médecin
-      </td>
-      <td>
-        Médicaments
-      </td>
-      <td>
-        Date
-      </td>
-       </tr>
-  @for (med of medRequest ; track med.id) {
-
-     <tr>
-    <td>{{med.requester?.display}}</td>
-   @if (med.medication?.concept?.coding?.[0]?.display) {
-    <td>{{med.medication?.concept?.coding?.[0]?.display }}</td>
-    } @else {
-    <td>No Display Available</td>
-    }
-
-      <td>{{ med.authoredOn }}</td>
-  <td> <button (click)="toggleClickOrdonnance()"> Voir ordonnance </button>></td>
+<table>
+  <thead>
+  <tr>
+    <td>
+      Médecin
+    </td>
+    <td>
+      Médicaments
+    </td>
+    <td>
+      Date
+    </td>
   </tr>
-    }
-  </table>
+  </thead>
 
-  @if (clickOrdonnance){ <p> coucou </p>}
+  <tbody>
+  @for (med of medRequest ; track med.id) {
+  <tr>
+ <td>{{med.requester?.display}}</td>
+   @if (med.medication?.concept?.coding?.[0]?.display) {
+  <td>{{med.medication?.concept?.coding?.[0]?.display }}</td>
+  } @else {
+  <td>No Display Available</td>
+  }
+
+
+  <td>{{ med.authoredOn }}</td>
+<td><button (click)="toggleClickOrdonnance()" type="button">Voir ordonnance</button></td>
+  </tr>
+
+
+  }
+  </tbody>
+
+</table>
+
+
+@if (clickOrdonnance) {
+<div class="dessus">
+<p> Détails de l'ordonnance {{ med.authoredOn }} </p>
+</div>
+}
