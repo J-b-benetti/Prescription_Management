@@ -7,12 +7,23 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="all">
+
   <div class="header">
     <a href="https://fontmeme.com/fr/police-barbie/"><img src="https://fontmeme.com/permalink/240911/3db383937620d93253a15a04080caf07.png" alt="police-barbie" border="0"></a>
   <a href="https://fontmeme.com/fr/polices-de-calligraphie/"><img src="https://fontmeme.com/permalink/240911/093952daf21bb44cf92f1959740952c5.png" alt="polices-de-calligraphie" border="0"></a></div>
-<p class="mesordonnances"> Mes ordonnances :  </p>
-<app-medicationrequest></app-medicationrequest>
+  <nav>
+    <ul>
+      <li><a routerLink="/">Mes ordonnances</a></li>
+      <li><a routerLink="/mes-paiements">Mes paiements</a></li>
+    </ul>
+  </nav>
 
+  <br>
+
+
+
+
+  <router-outlet></router-outlet>
 
 
 

@@ -24,7 +24,7 @@ constructor(private ServicePMService : ServicePMService) {}
     this.ServicePMService.getMedicationRequests() .subscribe({
       next: () => {
         this.medRequest = this.ServicePM.users(); // Accéder au signal et récupérer les données
-        console.log('Données récupérées:', this.medRequest);
+        //console.log('Données récupérées:', this.medRequest);
       },
       error: (err) => {
         this.errorMessage = 'Erreur lors de la récupération des Medication Requests'; // message d'erreur

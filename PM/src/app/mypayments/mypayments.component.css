@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+  border-collapse: separate; /* Change from collapse to separate */
+  border-spacing: 0; /* Make sure there's no spacing between cells */
+  background-color: lightblue;
+  border-radius: 15px; /* Apply border radius to the table */
+  overflow: hidden; /* Ensure content inside the table respects the border radius */
+  border: 2px solid #000; /* Add the black border around the table */
+}
+
+td {
+  border: 2px solid #000; /* Bordure épaisse autour des cellules (2px ici, ajustez selon besoin) */
+  padding: 12px; /* Espacement interne (augmenté pour plus d'espace) */
+  text-align: left; /* Alignement du texte */
+}
+
+th {
+  border: 2px solid #000;
+  text-align : center;
+  background-color: #87cefa; /* Fond légèrement gris pour les en-têtes */
+  color: #333; /* Couleur du texte pour les en-têtes */
+  border-bottom: 3px solid #000; /* Bordure inférieure plus épaisse pour les en-têtes */
+}
+
+
+.mesordonnances
+{ color: #003366; /* Bleu foncé */
+  font-weight: bold; /* Gras */
+  font-size : 20px;
+  font-family: 'Georgia', serif; /* Police stylée, ici Georgia comme exemple */}

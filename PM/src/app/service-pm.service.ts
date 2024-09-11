@@ -15,13 +15,15 @@ requester : { reference : string, display: string };
 
 dispenseRequest: { validityPeriod : {
     start : string, end :
-    string
-  }
+    string }
 }
-;
+;}
 
-
+export interface Claim {
+  id:string;
+  created:string;
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,16 +31,23 @@ dispenseRequest: { validityPeriod : {
 export class ServicePMService {
   private http = inject(HttpClient);
   public users = signal<MedicationRequest[]>([])
+  public claims = signal<Claim[]>([])
   url = 'https://fhir.alliance4u.io'
 
   constructor() {
   }
 
   getMedicationRequests(){
-    console.log(this.http.get<MedicationRequest[]>('https://fhir.alliance4u.io/api/medication-request').pipe(tap(users => this.users.set(users))).subscribe({
-      next: (data) => console.log('Données reçues:', data),
-      error: (err) => console.error('Erreur lors de la récupération:', err)
-    }));
+
     return this.http.get<MedicationRequest[]>('https://fhir.alliance4u.io/api/medication-request').pipe(tap(users => this.users.set(users)));
   }
+getPaymentClaims(){
+  console.log(this.http.get<Claim[]>('https://fhir.alliance4u.io/api/claim').pipe(tap(claims => this.claims.set(claims))).subscribe({
+    next: (data) => console.log('Données reçues:', data),
+    error: (err) => console.error('Erreur lors de la récupération:', err)
+  }));
+  return this.http.get<Claim[]>('https://fhir.alliance4u.io/api/claim').pipe(tap(claims => this.claims.set(claims)));
+
+}
+
 }
