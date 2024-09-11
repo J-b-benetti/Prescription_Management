@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {MedicationRequest, ServicePMService} from "../service-pm.service";
 import {inject} from "@angular/core";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-medicationrequest',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './medicationrequest.component.html',
   styleUrl: './medicationrequest.component.css'
 })
@@ -27,5 +28,8 @@ constructor(private ServicePMService : ServicePMService) {}
     });
 
   }
-  getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
+  //getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
+  trackByMedId(index: number, med: MedicationRequest): string {
+    return med.id; // Retourne l'ID unique pour le suivi des éléments
+  }
 }

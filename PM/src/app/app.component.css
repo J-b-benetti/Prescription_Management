@@ -4,3 +4,10 @@
 
 }
 
+.ordonnances-title {
+  margin-left: 20px; /* Décale le texte vers la droite */
+  font-size: 18px; /* Optionnel : changer la taille du texte */
+  /*font-weight: bold; !* Optionnel : mettre le texte en gras *!*/
+}
+
+

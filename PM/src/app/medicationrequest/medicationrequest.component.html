@@ -1,7 +1,17 @@
-<ul>
-
-  @for (med of medRequest ; track med.id) {
-  <li>{{ med.id }}</li>
-  <li>{{ med.status }}</li>
-  }
+<ul class="med-list">
+  <li *ngFor="let med of medRequest; trackBy: trackByMedId">
+    <div class="med-item">
+      <span class="med-id">{{ med.id }}</span>
+      <span class="med-status">{{ med.status }}</span>
+    </div>
+  </li>
 </ul>
+
+
+<!--<ul class="med-list">-->
+
+<!--  @for (med of medRequest ; track med.id) {-->
+<!--  <li>{{ med.id }}</li>-->
+<!--  <li>{{ med.status }}</li>-->
+<!--  }-->
+<!--</ul>-->
