@@ -1,6 +1,30 @@
-
-::ng-deep html,body {
-  background-image: url('../../public/Icones/fondbleu.jpg');
-
+/* Style pour centrer le menu */
+nav {
+  display: flex;
+  justify-content: center; /* Centre horizontalement le menu */
+  margin-top: 50px; /* Optionnel : ajuste cet espace selon tes besoins */
 }
 
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #ddd;
+}
