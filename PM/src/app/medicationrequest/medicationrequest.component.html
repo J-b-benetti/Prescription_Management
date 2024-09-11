@@ -1,15 +1,15 @@
 <table>
   <thead>
   <tr>
-    <td>
+    <th>
       Médecin
-    </td>
-    <td>
+    </th>
+    <th>
       Médicaments
-    </td>
-    <td>
+    </th>
+    <th>
       Date
-    </td>
+    </th>
   </tr>
   </thead>
 
@@ -25,7 +25,7 @@
 
 
   <td>{{ med.authoredOn }}</td>
-<td><button (click)="toggleClickOrdonnance(med)" type="button">Voir ordonnance</button></td>
+<td><button class="voirordo" (click)="toggleClickOrdonnance(med)" type="button">Voir ordonnance</button></td>
   </tr>
 
 

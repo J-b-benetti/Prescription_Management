@@ -6,5 +6,12 @@
 .header
 {
   text-align : center;
-  background-color: #87cefa;
+
 }
+
+
+.mesordonnances
+{ color: #003366; /* Bleu foncé */
+  font-weight: bold; /* Gras */
+  font-size : 20px;
+  font-family: 'Georgia', serif; /* Police stylée, ici Georgia comme exemple */}

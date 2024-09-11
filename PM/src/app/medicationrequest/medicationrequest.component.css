@@ -28,3 +28,41 @@ th {
 {
   margin-top: 15px;
 }
+table {
+  width: 100%; /* Largeur du tableau */
+  border-collapse: collapse; /* Fusionne les bordures du tableau */
+  background-color: lightblue; /* Fond léger bleu */
+}
+
+ td {
+   border: 2px solid #000; /* Bordure épaisse autour des cellules (2px ici, ajustez selon besoin) */
+   padding: 12px; /* Espacement interne (augmenté pour plus d'espace) */
+   text-align: left; /* Alignement du texte */
+ }
+
+th {
+  border: 2px solid #000;
+  text-align : center;
+  background-color: #87cefa; /* Fond légèrement gris pour les en-têtes */
+  color: #333; /* Couleur du texte pour les en-têtes */
+  border-bottom: 3px solid #000; /* Bordure inférieure plus épaisse pour les en-têtes */
+}
+
+.voirordo{
+  width: 180px;
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: #003366;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
