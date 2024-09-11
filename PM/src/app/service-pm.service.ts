@@ -1,15 +1,26 @@
 import {sign} from "crypto";
-
-export interface MedicationRequest {
- id : string;
- status : string;
- medication : any;
-
-}
-
 import { Injectable,inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+
+export interface MedicationRequest {
+  id: string;
+  identifier: [{ system: string, value: string }];
+  status: string;
+  medication?: { concept?: { coding?: [{ display?: string}]}};
+  authoredOn?: string;
+requester : { reference : string, display: string };
+
+
+dispenseRequest: { validityPeriod : {
+    start : string, end :
+    string
+  }
+}
+;
+
+
+}
 
 @Injectable({
   providedIn: 'root'

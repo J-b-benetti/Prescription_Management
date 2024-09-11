@@ -1,17 +1,40 @@
-<ul class="med-list">
-  <li *ngFor="let med of medRequest; trackBy: trackByMedId">
-    <div class="med-item">
-      <span class="med-id">{{ med.id }}</span>
-      <span class="med-status">{{ med.status }}</span>
-    </div>
-  </li>
-</ul>
-
-
 <!--<ul class="med-list">-->
-
-<!--  @for (med of medRequest ; track med.id) {-->
-<!--  <li>{{ med.id }}</li>-->
-<!--  <li>{{ med.status }}</li>-->
-<!--  }-->
+<!--  <li *ngFor="let med of medRequest; trackBy: trackByMedId">-->
+<!--    <div class="med-item">-->
+<!--      <span class="med-id">{{ med.id }}</span>-->
+<!--      <span class="med-status">{{ med.status }}</span>-->
+<!--    </div>-->
+<!--  </li>-->
 <!--</ul>-->
+
+
+<table>
+
+  <tr>
+    <td>
+      Médecin
+    </td>
+    <td>
+      Médicaments
+    </td>
+    <td>
+      Date
+    </td>
+  </tr>
+  @for (med of medRequest ; track med.id) {
+
+  <tr>
+ <td>{{med.requester?.display}}</td>
+   @if (med.medication?.concept?.coding?.[0]?.display) {
+  <td>{{med.medication?.concept?.coding?.[0]?.display }}</td>
+  } @else {
+  <td>No Display Available</td>
+  }
+
+  <td>{{ med.authoredOn }}</td>
+  <td> <button (click)="toggleClickOrdonnance()"> Voir ordonnance </button>></td>
+  </tr>
+  }
+</table>
+
+@if (clickOrdonnance){ <p> coucou </p>}

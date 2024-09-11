@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MedicationrequestComponent implements OnInit {
 private ServicePM = inject(ServicePMService);
+clickOrdonnance : boolean= false;
   medRequest: MedicationRequest[] =[];
   errorMessage: string | null = null;
 constructor(private ServicePMService : ServicePMService) {}
@@ -28,8 +29,14 @@ constructor(private ServicePMService : ServicePMService) {}
     });
 
   }
-  //getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
-  trackByMedId(index: number, med: MedicationRequest): string {
-    return med.id; // Retourne l'ID unique pour le suivi des éléments
+  // //getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
+  // trackByMedId(index: number, med: MedicationRequest): string {
+  //   return med.id; // Retourne l'ID unique pour le suivi des éléments
+
+  getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
+
+  toggleClickOrdonnance(){
+    console.log(this.clickOrdonnance);
+  this.clickOrdonnance = !this.clickOrdonnance;
   }
 }

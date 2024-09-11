@@ -1,45 +1,57 @@
-/* Centre la liste et ajoute un cadre autour */
-.med-list-container {
-  display: flex;
-  justify-content: center; /* Centre horizontalement la liste */
-  align-items: center; /* Centre verticalement la liste (si nécessaire) */
-  min-height: 100vh; /* S'assure que le conteneur prend toute la hauteur de l'écran */
-  background-color: #f5f5f5; /* Arrière-plan clair pour le cadre */
-}
+/*!* Centre la liste et ajoute un cadre autour *!*/
+/*.med-list-container {*/
+/*  display: flex;*/
+/*  justify-content: center; !* Centre horizontalement la liste *!*/
+/*  align-items: center; !* Centre verticalement la liste (si nécessaire) *!*/
+/*  min-height: 100vh; !* S'assure que le conteneur prend toute la hauteur de l'écran *!*/
+/*  background-color: #f5f5f5; !* Arrière-plan clair pour le cadre *!*/
+/*}*/
 
-.med-list {
-  list-style: none; /* Retire les puces par défaut */
-  padding: 20px; /* Ajoute un peu de padding à l'intérieur du cadre */
-  margin: 0 auto;
-  border: 1px solid #ccc; /* Bordure grise pour le cadre */
-  border-radius: 8px; /* Arrondit les coins du cadre */
-  background-color: #fff; /* Fond blanc à l'intérieur du cadre */
-  width: 100%; /* La largeur de la liste prend toute la place disponible */
-  max-width: 600px; /* Limite la largeur de la liste */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre douce pour l'effet de cadre */
-}
+/*.med-list {*/
+/*  list-style: none; !* Retire les puces par défaut *!*/
+/*  padding: 20px; !* Ajoute un peu de padding à l'intérieur du cadre *!*/
+/*  margin: 0 auto;*/
+/*  border: 1px solid #ccc; !* Bordure grise pour le cadre *!*/
+/*  border-radius: 8px; !* Arrondit les coins du cadre *!*/
+/*  background-color: #fff; !* Fond blanc à l'intérieur du cadre *!*/
+/*  width: 100%; !* La largeur de la liste prend toute la place disponible *!*/
+/*  max-width: 600px; !* Limite la largeur de la liste *!*/
+/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Ajoute une ombre douce pour l'effet de cadre *!*/
+/*}*/
 
-.med-item {
-  display: flex; /* Aligne l'ID et le statut en ligne */
-  justify-content: space-between; /* Crée de l'espace entre l'ID et le statut */
-  padding: 12px; /* Ajoute du padding à chaque élément */
-  margin-bottom: 10px; /* Espace entre les éléments */
-  border: 1px solid #e0e0e0; /* Légère bordure autour de chaque élément */
-  border-radius: 6px; /* Arrondit les coins */
-  background-color: #f8f8f8; /* Couleur de fond claire */
-  transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
-}
+/*.med-item {*/
+/*  display: flex; !* Aligne l'ID et le statut en ligne *!*/
+/*  justify-content: space-between; !* Crée de l'espace entre l'ID et le statut *!*/
+/*  padding: 12px; !* Ajoute du padding à chaque élément *!*/
+/*  margin-bottom: 10px; !* Espace entre les éléments *!*/
+/*  border: 1px solid #e0e0e0; !* Légère bordure autour de chaque élément *!*/
+/*  border-radius: 6px; !* Arrondit les coins *!*/
+/*  background-color: #f8f8f8; !* Couleur de fond claire *!*/
+/*  transition: background-color 0.3s ease; !* Transition pour l'effet de survol *!*/
+/*}*/
 
-.med-item:hover {
-  background-color: #f1f1f1; /* Change la couleur de fond au survol */
-}
+/*.med-item:hover {*/
+/*  background-color: #f1f1f1; !* Change la couleur de fond au survol *!*/
+/*}*/
 
-.med-id {
-  font-weight: bold; /* Gras pour l'ID */
-  color: #333; /* Couleur plus sombre pour l'ID */
-}
+/*.med-id {*/
+/*  font-weight: bold; !* Gras pour l'ID *!*/
+/*  color: #333; !* Couleur plus sombre pour l'ID *!*/
+/*}*/
 
-.med-status {
-  font-style: italic; /* Italique pour le statut */
-  color: #777; /* Couleur plus claire pour le statut */
+/*.med-status {*/
+/*  font-style: italic; !* Italique pour le statut *!*/
+/*  color: #777; !* Couleur plus claire pour le statut *!*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
 }
