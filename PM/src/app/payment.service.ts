@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PaymentNoticeService {
+export class PaymentService {
 
   private apiUrl = 'https://fhir.alliance4u.io/api/payment-notice'; // Remplace par ton URL d'API
 
   constructor(private http: HttpClient) { }
 
-  postPaymentNotice(data: any): Observable<any> {
+  postPayment(data: any): Observable<any> {
 
     const payload = {
       resourceType: 'PaymentNotice',

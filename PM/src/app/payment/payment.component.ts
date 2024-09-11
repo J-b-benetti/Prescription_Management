@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './payment.component.html',
-  styleUrl: './payment.component.css'
+  styleUrls: ['./payment.component.css'] // Correction ici
 })
 export class PaymentComponent {
   successMessage: string = '';
@@ -17,7 +17,7 @@ export class PaymentComponent {
 
   // Données en dur
   paymentNotice: Payment = {
-    identifier: [ { system: 'example-system', value: '12345' } ],
+    identifier: [{ system: 'example-system', value: '12345' }],
     status: 'active',
     created: new Date().toISOString(),
     recipient: { reference: 'organization/3' },
@@ -27,16 +27,15 @@ export class PaymentComponent {
   constructor(private paymentNoticeService: PaymentService) { }
 
   onSubmit(): void {
-    this.paymentNoticeService.postPaymentNotice(this.paymentNotice).subscribe({
-      next: (response) => {
+    this.paymentNoticeService.postPayment(this.paymentNotice).subscribe(
+      (response) => {
         this.successMessage = 'Les données ont été envoyées avec succès!';
         console.log('Données envoyées avec succès:', response);
       },
-      error: (error) => {
+      (error) => {
         this.errorMessage = 'Une erreur est survenue lors de l\'envoi des données.';
         console.error('Erreur lors de l\'envoi des données:', error);
       }
-    });
+    );
   }
-
 }
