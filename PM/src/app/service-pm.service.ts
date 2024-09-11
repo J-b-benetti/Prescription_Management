@@ -22,6 +22,7 @@ dispenseRequest: { validityPeriod : {
 export interface Claim {
   id:string;
   created:string;
+  item : [{unitPrice:{value : number}}];
 }
 
 

@@ -12,7 +12,7 @@
   @for (med of claims ; track med.id) {
   <tr>
  <td>{{med.id}}</td>
-  <td> ted</td>
+  <td> {{med.item[0]?.unitPrice?.value| currency: 'EUR'}} </td>
   <td> {{med.created|date:'short'}} </td>
 <td> <app-payment> </app-payment></td>
   </tr>

@@ -1,12 +1,15 @@
 import {Component, inject} from '@angular/core';
 import {Claim, MedicationRequest, ServicePMService} from "../service-pm.service";
 import {PaymentComponent} from "../payment/payment.component";
-import{DatePipe} from "@angular/common";
+import {DatePipe, registerLocaleData} from "@angular/common";
+import{CurrencyPipe} from "@angular/common";
+import localFr from '@angular/common/locales/fr'; // Spanish locale
+
 
 @Component({
   selector: 'app-mypayments',
   standalone: true,
-  imports: [PaymentComponent,DatePipe],
+  imports: [PaymentComponent,DatePipe,CurrencyPipe],
   templateUrl: './mypayments.component.html',
   styleUrl: './mypayments.component.css'
 })
@@ -16,7 +19,9 @@ claims : Claim[] =[]
   errorMessage: string | null = null;
 
 
+
   ngOnInit(): void {
+    registerLocaleData(localFr );
     this.ServicePM.getPaymentClaims() .subscribe({
       next: () => {
         this.claims = this.ServicePM.claims(); // Accéder au signal et récupérer les données
