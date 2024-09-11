@@ -1,0 +1,44 @@
+/* Style général du bouton */
+button {
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement interne (haut/bas, gauche/droite) */
+    font-size: 16px; /* Taille de la police */
+    cursor: pointer; /* Changer le curseur en main lors du survol */
+    transition: background-color 0.3s ease; /* Animation pour la couleur de fond */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style au survol du bouton */
+  button:hover {
+    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+  }
+  
+  /* Style lors du focus sur le bouton */
+  button:focus {
+    outline: none; /* Retirer le contour par défaut */
+  }
+  
+  /* Style des messages de succès et d'erreur */
+  .success-message, .error-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .success-message {
+    background-color: #d4edda; /* Couleur de fond pour le message de succès */
+    color: #155724; /* Couleur du texte pour le message de succès */
+    border: 1px solid #c3e6cb; /* Bordure pour le message de succès */
+  }
+  
+  .error-message {
+    background-color: #f8d7da; /* Couleur de fond pour le message d'erreur */
+    color: #721c24; /* Couleur du texte pour le message d'erreur */
+    border: 1px solid #f5c6cb; /* Bordure pour le message d'erreur */
+  }
+  

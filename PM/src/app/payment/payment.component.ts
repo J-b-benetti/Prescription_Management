@@ -15,13 +15,15 @@ export class PaymentComponent {
   successMessage: string = '';
   errorMessage: string = '';
 
+  mount = 200.00;
+
   // Données en dur
   paymentNotice: Payment = {
     identifier: [{ system: 'example-system', value: '12345' }],
     status: 'active',
     created: new Date().toISOString(),
     recipient: { reference: 'organization/3' },
-    amount: { value: 100.00, currency: 'USD' },
+    amount: { value: this.mount, currency: 'USD' },
   };
 
   constructor(private paymentNoticeService: PaymentService) { }
