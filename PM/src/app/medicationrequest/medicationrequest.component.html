@@ -37,8 +37,11 @@
 @for (med of medRequest ; track med.id) {
 @if (clickOrdonnance) {
 <div class="dessus">
-<p> Détails de l'ordonnance {{ selectedMedicationRequest?.requester?.display }}</p>
-  <p>{{ selectedMedicationRequest?.note?.[0]?.text }}</p>
+  <p> Détails de l'ordonnance</p>
+  <p> Nom du médicament: {{ selectedMedicationRequest?.medication?.concept?.coding?.[0]?.display }}</p>
+  <p> Note du médecin : {{ selectedMedicationRequest?.note?.[0]?.text }}</p>
+<app-medication-form/>
+ <button class="boutonfermer"(click)="toggleClickOrdonnance(med)">Fermer cette ordonnance</button>
 </div>
 
 }

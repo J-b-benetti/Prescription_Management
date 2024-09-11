@@ -1,0 +1,32 @@
+<h1>Validation de Prise de Médicament</h1>
+<form (ngSubmit)="onSubmit()">
+
+
+  <!--<label for="isSubPotent">Dose incomplète ?</label>-->
+  <!--<input id="isSubPotent" type="checkbox" [(ngModel)]="medicationAdministration.isSubPotent" name="isSubPotent">-->
+  <label>Avez-vous bien pris la dose COMPLETE de votre médicament ?</label>
+  <div class="form-group checkbox-group">
+    <label>
+      <input type="radio" id="isSubPotentYes" name="isSubPotent" (change)="onSubPotentChange(true)">
+      Oui
+    </label>
+    <label>
+      <input type="radio" id="isSubPotentNo" name="isSubPotent" (change)="onSubPotentChange(false)">
+      Non
+    </label>
+  </div>
+
+  <div *ngIf="!medicationAdministration.isSubPotent">
+    <label for="subPotentReason">Raison (si dose incomplète):</label>
+    <!--<input id="subPotentReason" [(ngModel)]="medicationAdministration.subPotentReason" name="subPotentReason">-->
+    <input type="text" id="subPotentReason" [(ngModel)]="newSubPotentReason" name="subPotentReason">
+  </div>
+
+  <div *ngIf="medicationAdministration.isSubPotent">
+    <label for="occurenceDateTime">A quelle date avez vous pris votre médicament ?</label>
+    <input id="occurenceDateTime" type="datetime-local" [(ngModel)]="medicationAdministration.occurenceDateTime" name="occurenceDateTime" required>
+  </div>
+  <br><br>
+
+  <button type="submit">Envoyer</button>
+</form>

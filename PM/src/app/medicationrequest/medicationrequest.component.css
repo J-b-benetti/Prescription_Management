@@ -20,5 +20,9 @@ th {
   left:20%; /* a 20% de la gauche */
   overflow: auto;
   background-color: #87cefa;
+  border-radius : 14px;
+  text-align: center;
 
 }
+.boutonfermer
+{}

@@ -1,11 +1,14 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MedicationRequest, ServicePMService} from "../service-pm.service";
 import {inject} from "@angular/core";
+import {MedicationFormComponent} from "../medication-form/medication-form.component";
 
 @Component({
   selector: 'app-medicationrequest',
   standalone: true,
-  imports: [],
+  imports: [
+    MedicationFormComponent
+  ],
   templateUrl: './medicationrequest.component.html',
   styleUrl: './medicationrequest.component.css'
 })
