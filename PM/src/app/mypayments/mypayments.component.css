@@ -28,3 +28,9 @@ th {
   font-weight: bold; /* Gras */
   font-size : 20px;
   font-family: 'Georgia', serif; /* Police stylée, ici Georgia comme exemple */}
+
+.center{display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  align-content: center;
+  justify-content: center;}
