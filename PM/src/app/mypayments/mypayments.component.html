@@ -11,8 +11,8 @@
   <tbody>
   @for (med of claims ; track med.id) {
   <tr>
- <td>{{med.id}}</td>
-  <td> {{med.item[0]?.unitPrice?.value| currency: 'EUR'}} </td>
+ <td>Doctor Faza</td>
+  <td> {{med.item[0]?.unitPrice?.value| currency: 'EUR':'symbol':undefined:'fr-FR'}} </td>
   <td> {{med.created|date:'short'}} </td>
 <td> <app-payment> </app-payment></td>
   </tr>
