@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Payment } from '../models/payment'; // Assure-toi d'avoir ce fichier
-import { PaymentNoticeService } from '../payment.service'; // Service pour envoyer les données
+import { PaymentService } from '../payment.service'; // Service pour envoyer les données
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -24,7 +24,7 @@ export class PaymentComponent {
     amount: { value: 100.00, currency: 'USD' },
   };
 
-  constructor(private paymentNoticeService: PaymentNoticeService) { }
+  constructor(private paymentNoticeService: PaymentService) { }
 
   onSubmit(): void {
     this.paymentNoticeService.postPaymentNotice(this.paymentNotice).subscribe({
