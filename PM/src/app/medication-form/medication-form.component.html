@@ -24,7 +24,7 @@
     <div *ngIf="!medicationAdministration.isSubPotent">
         <label for="subPotentReason">Raison (si dose incomplète):</label>
         <!--<input id="subPotentReason" [(ngModel)]="medicationAdministration.subPotentReason" name="subPotentReason">-->
-        <input type="text" id="subPotentReason" [(ngModel)]="newSubPotentReason" name="subPotentReason">
+        <input id="subPotentReason" [(ngModel)]="medicationAdministration.subPotentReason[0].text" name="subPotentReason">
     </div>
 
     <div *ngIf="medicationAdministration.isSubPotent">

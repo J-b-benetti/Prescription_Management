@@ -15,10 +15,14 @@ export class MedicationService {
   postMedicationAdministration(data: any): Observable<any> {
 
     // Nettoyage
-    if(data.occurenceDateTime == ""){
+    if (data.occurenceDateTime == "") {
       delete data['occurenceDateTime'];
     }
- 
+    
+    if (data.subPotentReason[0].text == "") {
+      delete data['subPotentReason'];
+    }
+    
     // Construction de la payload
     const payload = {
       resourceType: 'MedicationAdministration',
