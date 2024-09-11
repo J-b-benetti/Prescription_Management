@@ -42,7 +42,7 @@
   <p> Nom du médicament: {{ selectedMedicationRequest?.medication?.concept?.coding?.[0]?.display }}</p>
   <p> Note du médecin : {{ selectedMedicationRequest?.note?.[0]?.text }}</p>
 <app-medication-form/>
- <button class="boutonfermer"(click)="toggleClickOrdonnance(med)">Fermer cette ordonnance</button>
+ <button class="voirordo"(click)="toggleClickOrdonnance(med)">Fermer l'ordonnance</button>
 </div>
 
 }
