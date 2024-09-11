@@ -8,7 +8,7 @@ export interface MedicationRequest {
   identifier: [{ system: string, value: string }];
   status: string;
   medication?: { concept?: { coding?: [{ display?: string}]}};
-  authoredOn?: string;
+  authoredOn?: Date;
   note : [{authorReference : {reference : string, display : string},text : string}]
 requester : { reference : string, display: string };
 

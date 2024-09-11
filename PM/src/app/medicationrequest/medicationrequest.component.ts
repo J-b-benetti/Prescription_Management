@@ -2,12 +2,13 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MedicationRequest, ServicePMService} from "../service-pm.service";
 import {inject} from "@angular/core";
 import {MedicationFormComponent} from "../medication-form/medication-form.component";
+import{DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-medicationrequest',
   standalone: true,
   imports: [
-    MedicationFormComponent
+    MedicationFormComponent,DatePipe
   ],
   templateUrl: './medicationrequest.component.html',
   styleUrl: './medicationrequest.component.css'
@@ -25,7 +26,7 @@ constructor(private ServicePMService : ServicePMService) {}
   ngOnInit(): void {
     this.ServicePMService.getMedicationRequests() .subscribe({
       next: () => {
-        this.medRequest = this.ServicePM.users(); // Accéder au signal et récupérer les données
+        this.medRequest = this.ServicePM.users();
         //console.log('Données récupérées:', this.medRequest);
       },
       error: (err) => {

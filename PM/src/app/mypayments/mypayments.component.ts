@@ -1,11 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {Claim, MedicationRequest, ServicePMService} from "../service-pm.service";
 import {PaymentComponent} from "../payment/payment.component";
+import{DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-mypayments',
   standalone: true,
-  imports: [PaymentComponent],
+  imports: [PaymentComponent,DatePipe],
   templateUrl: './mypayments.component.html',
   styleUrl: './mypayments.component.css'
 })
