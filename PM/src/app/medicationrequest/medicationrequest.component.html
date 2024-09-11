@@ -25,7 +25,7 @@
 
 
   <td>{{ med.authoredOn }}</td>
-<td><button (click)="toggleClickOrdonnance()" type="button">Voir ordonnance</button></td>
+<td><button (click)="toggleClickOrdonnance(med)" type="button">Voir ordonnance</button></td>
   </tr>
 
 
@@ -34,9 +34,12 @@
 
 </table>
 
-
+@for (med of medRequest ; track med.id) {
 @if (clickOrdonnance) {
 <div class="dessus">
-<p> Détails de l'ordonnance {{ med.authoredOn }} </p>
+<p> Détails de l'ordonnance {{ selectedMedicationRequest?.requester?.display }}</p>
+  <p>{{ selectedMedicationRequest?.note?.[0]?.text }}</p>
 </div>
+
+}
 }

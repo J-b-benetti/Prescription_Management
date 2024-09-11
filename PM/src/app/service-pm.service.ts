@@ -9,6 +9,7 @@ export interface MedicationRequest {
   status: string;
   medication?: { concept?: { coding?: [{ display?: string}]}};
   authoredOn?: string;
+  note : [{authorReference : {reference : string, display : string},text : string}]
 requester : { reference : string, display: string };
 
 

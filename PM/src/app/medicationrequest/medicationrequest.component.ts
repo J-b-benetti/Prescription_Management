@@ -12,6 +12,8 @@ import {inject} from "@angular/core";
 export class MedicationrequestComponent implements OnInit {
 private ServicePM = inject(ServicePMService);
 clickOrdonnance : boolean = false;
+  selectedMedicationRequest: MedicationRequest | null = null;
+
   medRequest: MedicationRequest[] =[];
   errorMessage: string | null = null;
 constructor(private ServicePMService : ServicePMService) {}
@@ -30,7 +32,9 @@ constructor(private ServicePMService : ServicePMService) {}
   }
   getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
 
-  toggleClickOrdonnance(){
+  toggleClickOrdonnance(medRequestparam : MedicationRequest){
   this.clickOrdonnance = !this.clickOrdonnance;
+    this.selectedMedicationRequest = medRequestparam;
+
   }
 }
