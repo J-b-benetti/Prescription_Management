@@ -6,6 +6,7 @@ import { Observable, tap } from 'rxjs';
 export interface MedicationRequest {
   id: string;
   identifier: [{ system: string, value: string }];
+  subject:{id:string};
   status: string;
   medication?: { concept?: { coding?: [{ display?: string}]}};
   authoredOn?: Date;

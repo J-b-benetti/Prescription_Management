@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { MedicationService } from '../medication.service';
 import { FormsModule } from '@angular/forms';
 import { MedicationAdministration } from '../models/medication.model';
-import { CommonModule } from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
+import{DatePipe} from "@angular/common";
+import localFr from '@angular/common/locales/fr'; // Spanish locale
 
 @Component({
   selector: 'app-medication-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,DatePipe],
   templateUrl: './medication-form.component.html',
   styleUrl: './medication-form.component.css'
 })
@@ -37,6 +39,7 @@ export class MedicationFormComponent {
   constructor(private medicationService: MedicationService) { }
 
   onSubmit(): void {
+
     this.medicationAdministration.occurenceDateTime = this.formatToUTC(this.medicationAdministration.occurenceDateTime);
 
     this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {

@@ -2,7 +2,9 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {MedicationRequest, ServicePMService} from "../service-pm.service";
 import {inject} from "@angular/core";
 import {MedicationFormComponent} from "../medication-form/medication-form.component";
-import{DatePipe} from "@angular/common";
+import {DatePipe, registerLocaleData} from "@angular/common";
+import localFr from '@angular/common/locales/fr';
+
 
 @Component({
   selector: 'app-medicationrequest',
@@ -24,9 +26,10 @@ clickOrdonnance : boolean = false;
   errorMessage: string | null = null;
 constructor(private ServicePMService : ServicePMService) {}
   ngOnInit(): void {
+    registerLocaleData(localFr);
     this.ServicePMService.getMedicationRequests() .subscribe({
       next: () => {
-        this.medRequest = this.ServicePM.users();
+        this.medRequest = this.ServicePM.users().filter(m=>m.subject.id =="66dfed4999cb8a001240f32f");
         //console.log('Données récupérées:', this.medRequest);
       },
       error: (err) => {
