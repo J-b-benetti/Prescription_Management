@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { MedicationFormComponent } from "./medication-form/medication-form.component";
 import { MedicationrequestComponent } from "./medicationrequest/medicationrequest.component";
 import { MypaymentsComponent } from "./mypayments/mypayments.component";
 
