@@ -20,5 +20,6 @@ export class PaymentService {
     console.log('Payload:', payload);
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<any>(this.apiUrl, payload, { headers })  }
+    return this.http.post<any>(this.apiUrl, payload, { headers })
+  }
 }

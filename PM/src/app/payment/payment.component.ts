@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Payment} from '../models/payment';  // Assure-toi d'avoir ce fichier
+import { Payment } from '../models/payment';  // Assure-toi d'avoir ce fichier
 import { PaymentService } from '../payment.service'; // Service pour envoyer les données
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ export class PaymentComponent {
 
   // Données en dur
   paymentNotice: Payment = {
-    identifier: [ { system: 'example-system', value: '12345' } ],
+    identifier: [{ system: 'example-system', value: '12345' }],
     status: 'active',
     created: new Date().toISOString(),
     recipient: { reference: 'organization/3' },

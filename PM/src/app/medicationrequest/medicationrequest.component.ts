@@ -1,8 +1,8 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {MedicationRequest, ServicePMService} from "../service-pm.service";
-import {inject} from "@angular/core";
-import {MedicationFormComponent} from "../medication-form/medication-form.component";
-import {DatePipe, registerLocaleData} from "@angular/common";
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { MedicationRequest, ServicePMService } from "../service-pm.service";
+import { inject } from "@angular/core";
+import { MedicationFormComponent } from "../medication-form/medication-form.component";
+import { DatePipe, registerLocaleData } from "@angular/common";
 import localFr from '@angular/common/locales/fr';
 
 
@@ -10,7 +10,7 @@ import localFr from '@angular/common/locales/fr';
   selector: 'app-medicationrequest',
   standalone: true,
   imports: [
-    MedicationFormComponent,DatePipe
+    MedicationFormComponent, DatePipe
   ],
   templateUrl: './medicationrequest.component.html',
   styleUrl: './medicationrequest.component.css'
@@ -18,18 +18,18 @@ import localFr from '@angular/common/locales/fr';
 export class MedicationrequestComponent implements OnInit {
 
 
-private ServicePM = inject(ServicePMService);
-clickOrdonnance : boolean = false;
+  private ServicePM = inject(ServicePMService);
+  clickOrdonnance: boolean = false;
   selectedMedicationRequest: MedicationRequest | null = null;
 
-  medRequest: MedicationRequest[] =[];
+  medRequest: MedicationRequest[] = [];
   errorMessage: string | null = null;
-constructor(private ServicePMService : ServicePMService) {}
+  constructor(private ServicePMService: ServicePMService) { }
   ngOnInit(): void {
     registerLocaleData(localFr);
-    this.ServicePMService.getMedicationRequests() .subscribe({
+    this.ServicePMService.getMedicationRequests().subscribe({
       next: () => {
-        this.medRequest = this.ServicePM.users().filter(m=>m.subject.id =="66dfed4999cb8a001240f32f");
+        this.medRequest = this.ServicePM.users().filter(m => m.subject.id == "66dfed4999cb8a001240f32f");
         //console.log('Données récupérées:', this.medRequest);
       },
       error: (err) => {
@@ -39,10 +39,10 @@ constructor(private ServicePMService : ServicePMService) {}
     });
 
   }
-  getMedicationRequests() :void{ this.ServicePMService.getMedicationRequests()}
+  getMedicationRequests(): void { this.ServicePMService.getMedicationRequests() }
 
-  toggleClickOrdonnance(medRequestparam : MedicationRequest){
-  this.clickOrdonnance = !this.clickOrdonnance;
+  toggleClickOrdonnance(medRequestparam: MedicationRequest) {
+    this.clickOrdonnance = !this.clickOrdonnance;
     this.selectedMedicationRequest = medRequestparam;
 
   }

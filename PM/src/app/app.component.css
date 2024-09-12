@@ -1,14 +1,11 @@
-
-::ng-deep html,body {
-  background-image: url('../../public/Icones/fondbleu.jpg');
+::ng-deep html,
+body {
+  background-image: url("../../public/Icones/fondbleu.jpg");
   background-size: cover;
 }
-.header
-{
-  text-align : center;
-
+.header {
+  text-align: center;
 }
-
 
 /* Style pour centrer le menu */
 nav {

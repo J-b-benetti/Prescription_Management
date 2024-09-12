@@ -1,37 +1,38 @@
-<p class="mesordonnances"> Mes ordonnances :  </p>
+<p class="mesordonnances"> Mes ordonnances : </p>
 <table>
   <thead>
-  <tr>
-    <th>
-      Médecin
-    </th>
-    <th>
-      Médicaments
-    </th>
-    <th>
-      Date
-    </th>
-    <th></th>
-  </tr>
+    <tr>
+      <th>
+        Médecin
+      </th>
+      <th>
+        Médicaments
+      </th>
+      <th>
+        Date
+      </th>
+      <th></th>
+    </tr>
   </thead>
 
   <tbody>
-  @for (med of medRequest ; track med.id) {
-  <tr>
- <td>{{med.requester?.display}}</td>
-   @if (med.medication?.concept?.coding?.[0]?.display) {
-  <td>{{med.medication?.concept?.coding?.[0]?.display }}</td>
-  } @else {
-  <td>No Display Available</td>
-  }
+    @for (med of medRequest ; track med.id) {
+    <tr>
+      <td>{{med.requester?.display}}</td>
+      @if (med.medication?.concept?.coding?.[0]?.display) {
+      <td>{{med.medication?.concept?.coding?.[0]?.display }}</td>
+      } @else {
+      <td>No Display Available</td>
+      }
 
 
-  <td>{{med.authoredOn|date:'short': undefined : 'fr'}}</td>
-<td class="center"><button class="voirordo" (click)="toggleClickOrdonnance(med)" type="button">Voir ordonnance</button></td>
-  </tr>
+      <td>{{med.authoredOn|date:'short': undefined : 'fr'}}</td>
+      <td class="center"><button class="voirordo" (click)="toggleClickOrdonnance(med)" type="button">Voir
+          ordonnance</button></td>
+    </tr>
 
 
-  }
+    }
   </tbody>
 
 </table>
@@ -42,8 +43,8 @@
   <p> Détails de l'ordonnance</p>
   <p> Nom du médicament: {{ selectedMedicationRequest?.medication?.concept?.coding?.[0]?.display }}</p>
   <p> Note du médecin : {{ selectedMedicationRequest?.note?.[0]?.text }}</p>
-<app-medication-form/>
- <button class="voirordo"(click)="toggleClickOrdonnance(med)">Fermer l'ordonnance</button>
+  <app-medication-form />
+  <button class="voirordo" (click)="toggleClickOrdonnance(med)">Fermer l'ordonnance</button>
 </div>
 
 }

@@ -10,7 +10,7 @@ import { MedicationAdministration } from './models/medication.model';
 export class MedicationService {
   private apiUrl = 'https://fhir.alliance4u.io/api/medication-administration';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   postMedicationAdministration(data: any): Observable<any> {
 

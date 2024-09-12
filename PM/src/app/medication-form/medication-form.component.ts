@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { MedicationService } from '../medication.service';
 import { FormsModule } from '@angular/forms';
 import { MedicationAdministration } from '../models/medication.model';
-import {CommonModule, registerLocaleData} from '@angular/common';
-import{DatePipe} from "@angular/common";
+import { CommonModule, registerLocaleData } from '@angular/common';
+import { DatePipe } from "@angular/common";
 import localFr from '@angular/common/locales/fr'; // Spanish locale
 
 @Component({
   selector: 'app-medication-form',
   standalone: true,
-  imports: [CommonModule, FormsModule,DatePipe],
+  imports: [CommonModule, FormsModule, DatePipe],
   templateUrl: './medication-form.component.html',
   styleUrl: './medication-form.component.css'
 })
@@ -20,10 +20,12 @@ export class MedicationFormComponent {
     status: '',
     occurenceDateTime: '',
     isSubPotent: false,
-    subPotentReason: [ { text: '' } ],
+    subPotentReason: [{ text: '' }],
     performer: [
       {
-        function: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/performer-function', //http://terminology.hl7.org/CodeSystem/performer-function
+        function: {
+          coding: [{
+            system: 'http://terminology.hl7.org/CodeSystem/performer-function', //http://terminology.hl7.org/CodeSystem/performer-function
             code: 'doctor', //doctor
             display: 'Doctor' //Doctor
           }]
@@ -35,7 +37,7 @@ export class MedicationFormComponent {
 
   newSubPotentReason: string = '';
   successMessage: string = '';
-  isSent:boolean=false;
+  isSent: boolean = false;
 
   constructor(private medicationService: MedicationService) { }
 
@@ -46,7 +48,7 @@ export class MedicationFormComponent {
     this.medicationService.postMedicationAdministration(this.medicationAdministration).subscribe(response => {
       this.successMessage = 'Le formulaire a été enregistré avec succès!';
       this.resetForm();
-      this.isSent=true;
+      this.isSent = true;
 
       console.log('Données envoyées avec succès:', response);
     }, error => {
@@ -58,7 +60,7 @@ export class MedicationFormComponent {
 
   private formatToUTC(dateTime: string): string {
     const date = new Date(dateTime);
-    if(this.isValidDate(date)) {
+    if (this.isValidDate(date)) {
       return date.toISOString();
     } else {
       return "";
@@ -99,7 +101,7 @@ export class MedicationFormComponent {
       status: '',
       occurenceDateTime: '',
       isSubPotent: false,
-      subPotentReason: [ {text: '' }
+      subPotentReason: [{ text: '' }
       ],
       performer: [
         {
